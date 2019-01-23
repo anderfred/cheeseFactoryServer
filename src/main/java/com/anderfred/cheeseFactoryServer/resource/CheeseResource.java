@@ -1,5 +1,6 @@
 package com.anderfred.cheeseFactoryServer.resource;
 
+import com.anderfred.cheeseFactoryServer.aop.LogAOP;
 import com.anderfred.cheeseFactoryServer.mapper.CheeseMapper;
 import com.anderfred.cheeseFactoryServer.model.Cheese;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ public class CheeseResource {
     }
 
     @GetMapping("/all")
+    @LogAOP
     List<Cheese> getCheese() {
         return cheeseMapper.findAll();
     }
